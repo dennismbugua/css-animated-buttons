@@ -1,0 +1,87 @@
+html { height: 100%; }
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: rgb(227, 237, 247);
+  overflow: hidden;
+}
+span{
+  background: rgb(227, 237, 247);
+  border-radius: 18px;
+  display: inline-block;
+  min-width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 24px; 
+  font-weight: 600;
+  margin: 0 20px;
+}
+
+span > i {
+  margin-top: 12px;
+}
+
+.outer-container{
+  display: flex; 
+}
+
+@media screen and (min-width: 728px) {
+  .outer-container{
+    zoom: 2;
+  }  
+}
+
+.button.off{
+  color: rgba(49,69,106,0.35);
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,.15),
+    -6px -6px 10px -1px rgba(255,255,255,.7); 
+  border: 1px solid rgba(0,0,0,0.0);
+  animation: clicked .2s ease;
+}
+
+@keyframes clicked{
+  50%{
+    transform : scale(1.03);
+  }
+}
+
+.button.on{
+  color: rgb(49,69,106);
+  border: 1px solid rgba(0,0,0,0.0);
+  box-shadow: inset 4px 4px 6px -1px rgba(49,69,106,0.2),
+    inset -4px -4px 6px 1px rgba(255,255,255, .7),
+    -0.5px -0.5px 0 rgba(255,255,255,1),
+    0.5px 0.5px 0 rgba(0,0,0,.15),
+    0px 12px 120px -10px rgba(0,0,0,0.05);
+  animation: clickedIn .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes clickedIn{
+  50%{
+    transform : scale(0.98);
+  }
+}
+
+.outer-container:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 200%;
+  z-index: 2;
+  background: linear-gradient(to right, transparent, rgb(227, 237, 247),rgb(227, 237, 247));
+  animation: animate 3s linear forwards;
+}
+
+@keyframes animate{
+  0%{
+    right: 0;
+  }
+  100%{
+    right: -200%;
+  }
+}
